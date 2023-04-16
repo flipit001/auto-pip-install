@@ -36,6 +36,7 @@ with open(PATH, "r") as f:
             if line.split(" ")[1] not in pyfiles:
                 downloads.append(line.split(" ")[1])
 #print("DEBUG3")
+downloads = [*set(downloads)]
 for download in downloads:
     Link = [j for j in search(f"{download} python library", tld="co.in", num=20, stop=20, pause=2) if "https://pypi.org/project/" in j][0] #idk for some reason it works like this but it does not work when doing normally without the list
     if Link:
